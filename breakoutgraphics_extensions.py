@@ -47,20 +47,42 @@ class BreakoutGraphics:
         # create score label
         self.score = 0
         self.score_label = GLabel("Score: " + str(self.score))
-        self.score_label.font = "-20"
-        self.window.add(self.score_label, 0, self.window_height-self.score_label.height)  # 因為label的原點在label左下角
+        self.score_label.font = "Comic Sans MS-20-bold"
+        self.window.add(self.score_label, 0, self.window_height-self.score_label.height)
 
-        # Create a paddle.
+        # create three hit points
+        self.point1 = GOval(ball_radius*2, ball_radius*2, x=self.window_width - ball_radius*3,
+                            y=self.window_height-self.window_height*0.06)
+        self.point2 = GOval(ball_radius * 2, ball_radius * 2, x=self.window_width - ball_radius*6,
+                            y=self.window_height-self.window_height*0.06)
+        self.point3 = GOval(ball_radius * 2, ball_radius * 2, x=self.window_width - ball_radius*9,
+                            y=self.window_height-self.window_height*0.06)
+        self.point1.filled = True
+        self.point2.filled = True
+        self.point3.filled = True
+        self.point1.color = "white"
+        self.point2.color = "white"
+        self.point3.color = "white"
+        self.point1.fill_color = "salmon"
+        self.point2.fill_color = "salmon"
+        self.point3.fill_color = "salmon"
+        self.window.add(self.point1)
+        self.window.add(self.point2)
+        self.window.add(self.point3)
+
+        # create a paddle
         self.paddle = GRect(paddle_width, paddle_height)
         self.paddle.filled = True
-        self.window.add(self.paddle, x=(self.window_width-paddle_width)/2, y=self.window_height-paddle_offset-paddle_height)
+        self.window.add(self.paddle, x=(self.window_width-paddle_width)/2,
+                        y=self.window_height-paddle_offset-paddle_height)
 
-        # Center a filled ball in the graphical window.
-        self.ball = GOval(ball_radius*2, ball_radius*2, x=(self.window_width/2-ball_radius), y=(self.window_height/2-ball_radius))
+        # center a filled ball in the graphical window
+        self.ball = GOval(ball_radius*2, ball_radius*2, x=(self.window_width/2-ball_radius),
+                          y=(self.window_height/2-ball_radius))
         self.ball.filled = True
         self.window.add(self.ball)
 
-        # Default initial velocity for the ball.
+        # default initial velocity for the ball
         self.__dx = random.randint(1, MAX_X_SPEED)
         self.__dy = INITIAL_Y_SPEED
         self.reset_dx()
