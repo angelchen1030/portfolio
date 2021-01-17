@@ -61,9 +61,6 @@ def draw_fixed_lines(canvas):
     """
     canvas.delete('all')            # delete all existing lines from the canvas
 
-    # Write your code below this line
-    #################################
-
     # upper line
     canvas.create_line(GRAPH_MARGIN_SIZE, GRAPH_MARGIN_SIZE, CANVAS_WIDTH-GRAPH_MARGIN_SIZE, GRAPH_MARGIN_SIZE)
     # lower line
@@ -90,9 +87,6 @@ def draw_names(canvas, name_data, lookup_names):
         This function does not return any value.
     """
     draw_fixed_lines(canvas)        # draw the fixed background grid
-
-    # Write your code below this line
-    #################################
 
     for i in range(len(lookup_names)):
         display_name = lookup_names[i]
