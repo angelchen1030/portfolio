@@ -2,8 +2,6 @@
 SC101 Baby Names Project
 Adapted from Nick Parlante's Baby Names assignment by
 Jerry Liao.
-
-YOUR DESCRIPTION HERE
 """
 
 import sys
@@ -24,7 +22,7 @@ def add_data_for_name(name_data, year, rank, name):
         name, year, and rank. This function does not return any values.
     """
     if name in name_data:
-        if year in name_data[name].keys():  # gender neutral names in same year
+        if year in name_data[name]:         # gender neutral names in same year
             if int(name_data[name][year]) > int(rank):
                 name_data[name][year] = rank
         else:                               # name in different years
